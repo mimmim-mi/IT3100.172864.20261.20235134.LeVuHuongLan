@@ -1,0 +1,19 @@
+Câu 5 – Constructor (Hàm khởi tạo)
+
+Không thể khai báo hai constructor DigitalVideoDisc(String title) và DigitalVideoDisc(String category) riêng biệt trong cùng một lớp. Mặc dù tên tham số khác nhau, cả hai đều có cùng kiểu tham số là String, nên Java xem chúng có cùng chữ ký. Java không phân biệt các constructor dựa trên tên tham số. Vì vậy, cần sử dụng cách thiết kế khác nếu muốn biểu diễn hai trường hợp này.
+
+Câu 9 – So sánh mảng và varargs
+
+Phiên bản sử dụng mảng yêu cầu người gọi tạo hoặc cung cấp một mảng DVD. Với phiên bản varargs, người gọi có thể truyền trực tiếp nhiều đối tượng DVD vào phương thức mà không cần tự tạo mảng, giúp lời gọi ngắn gọn và dễ đọc hơn.
+Trong trường hợp này, em ưu tiên varargs khi cần thêm nhiều DVD riêng lẻ vì cách gọi thuận tiện hơn. Tuy nhiên, phiên bản mảng phù hợp khi danh sách DVD đã có sẵn dưới dạng một mảng.
+Về bản chất, Java xử lý tham số varargs như một mảng. Vì vậy, không thể khai báo đồng thời hai phương thức cùng tên chỉ khác nhau ở chỗ một phương thức nhận DigitalVideoDisc[] còn phương thức kia nhận DigitalVideoDisc....
+
+Câu 10.1 – Vì sao tiêu đề không thay đổi sau khi gọi swap()?
+
+Java luôn truyền tham số theo giá trị (pass-by-value). Khi gọi swap(), phương thức nhận bản sao của các tham chiếu đến hai đối tượng DVD. Việc hoán đổi hai biến cục bộ dvd1 và dvd2 chỉ thay đổi các bản sao này, không thay đổi hai biến jungleDVD và cinderellaDVD trong phương thức main().
+Do đó, sau khi gọi swap(), tiêu đề của hai DVD vẫn lần lượt là Jungle và Cinderella.
+
+Câu 10.2 – Vì sao changeTitle() thay đổi được tiêu đề của jungleDVD?
+
+Phương thức changeTitle() nhận một bản sao của tham chiếu đến đối tượng DVD ban đầu. Mặc dù tham chiếu được truyền theo giá trị, bản sao đó vẫn trỏ đến cùng một đối tượng.
+Khi gọi setTitle() thông qua tham chiếu này, thuộc tính title của đối tượng ban đầu được thay đổi. Vì vậy, tiêu đề của jungleDVD trở thành Cinderella.
